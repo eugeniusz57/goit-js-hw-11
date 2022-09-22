@@ -9,11 +9,11 @@ import AP from "./js/classapi";
 const API = new AP();
 
 let throttle = require('lodash.throttle');
-
+refs.imgLoader.classList.add('hiden');
+refs.btnInfo.classList.add('hiden');
 refs.form.addEventListener('submit', onSubmit);
 window.addEventListener('scroll', throttle(onScroll, 300));
-refs.imgLoader.classList.add('hiden');
-refs.btnInfo.classList.add('hiden')
+
 
 
 function onSubmit(e) {
