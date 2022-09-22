@@ -3,7 +3,7 @@ const key = '29990165-8c350ed327b5f0dec080b7ac6';
 const image_type = "photo";
 const orientation = "horizontal";
 const safesearch = "true";
-const per_page = 20;
+const per_page = 40;
 
 export default class API {
     constructor(){

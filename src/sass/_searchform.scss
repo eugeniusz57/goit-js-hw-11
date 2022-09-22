@@ -65,7 +65,16 @@ margin: 0 auto;
 
 }
 
+.btn-info.hiden{
+    display: none;
+}
 
 .hiden{
     display: none;
+}
+
+.btn-info{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
