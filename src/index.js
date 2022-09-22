@@ -11,8 +11,8 @@ const API = new AP();
 let throttle = require('lodash.throttle');
 
 refs.form.addEventListener('submit', onSubmit);
-window.addEventListener('scroll', throttle(onScroll, 300))
-refs.imgLoader.classList.add('hiden')
+window.addEventListener('scroll', throttle(onScroll, 300));
+refs.imgLoader.classList.add('hiden');
 
 
 
