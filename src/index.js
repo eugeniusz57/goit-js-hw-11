@@ -1,5 +1,5 @@
 
-import refs from "./js/refs";
+import {refs} from "./js/refs";
 import Notiflix from 'notiflix';
 import createCard from "./js/createCards";
 import SimpleLightbox from "simplelightbox";
