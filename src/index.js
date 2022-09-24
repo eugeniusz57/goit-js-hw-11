@@ -5,30 +5,36 @@ import createCard from "./js/createCards";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 import AP from "./js/classapi";
-
+const debounce = require('debounce');
 const API = new AP();
 
-let throttle = require('lodash.throttle');
-refs.imgLoader.classList.add('hiden');
 refs.btnInfo.classList.add('hiden');
+refs.imgLoader.classList.add('hiden');
+
 refs.form.addEventListener('submit', onSubmit);
-window.addEventListener('scroll', throttle(onScroll, 300));
+window.addEventListener('scroll', debounce(onScroll, 300));
 
 
 
 function onSubmit(e) {
     e.preventDefault();
     clearList();
-    API.query = e.currentTarget.elements.searchQuery.value;
+    API.query = e.currentTarget.elements.searchQuery.value.trim();
+    console.log( API.query);
+    if (!API.query) {
+        Notiflix.Notify.failure('Enter search word');
+        return
+    }
     API.resetPage();
     searchDate();
 }
 
 function onScroll() {
         const docRect = document.documentElement.getBoundingClientRect();
-
-        if(docRect.bottom <= document.documentElement.clientHeight + 50){
-            addImageScroll()
+        docRect.bottom <= document.documentElement.clientHeight + 50
+        if(window.scrollY + window.innerHeight + 150 > document.documentElement.scrollHeight){
+            addImageScroll();
+            return;
         }
 }
 
@@ -55,7 +61,9 @@ try {
 
 async function addImageScroll() {
 try {
+
     const date = await API.fetchArticles();
+    console.log("date =", date);
     createLists(date.hits)
         lightBox();
         checkAmountImages(date);
