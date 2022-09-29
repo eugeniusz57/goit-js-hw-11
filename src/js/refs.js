@@ -5,4 +5,5 @@ export const refs = {
     buttonSearch: document.querySelector('button'),
     imgLoader: document.querySelector('.loader'),
     btnInfo: document.querySelector('.btn-info'),
+    container: document.querySelector(".photo-card")
 }
